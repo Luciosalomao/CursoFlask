@@ -70,4 +70,3 @@ desktop.ini
 
 # Arquivos de relatório
 *.html
-!app/templates/**/*.html  # Exceto templates HTML do projeto
