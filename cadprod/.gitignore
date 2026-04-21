@@ -1,0 +1,73 @@
+# Ambiente virtual
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Banco de dados
+*.db
+*.sqlite
+*.sqlite3
+instance/
+
+# Arquivos de configuração local
+.env
+.flaskenv
+config.py
+config.local.py
+
+# Logs
+*.log
+logs/
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - PyCharm
+.idea/
+*.iml
+
+# IDE - Sublime Text
+*.sublime-*
+
+# IDE - VIM
+*.swp
+*.swo
+
+# Arquivos de teste
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Distribuição / build
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de backup
+*.bak
+*.backup
+*.tmp
+
+# Docker
+*.pid
+
+# Arquivos de relatório
+*.html
+!app/templates/**/*.html  # Exceto templates HTML do projeto
