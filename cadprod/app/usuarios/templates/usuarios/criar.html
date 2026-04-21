@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Criar Usuário{% endblock %}
+
+{% block content %}
+<h1>Criar Novo Usuário</h1>
+
+<form method="POST">
+        <div>
+            <label>Nome:</label>
+            <input type="text" name="nome"  required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="text" name="email"  required>
+        </div>
+        <button type="submit">Salvar</button>
+        <a href="{{ url_for('usuarios.listar') }}" style="margin-left:10px;">Cancelar</a>
+</form>
+{% endblock %}

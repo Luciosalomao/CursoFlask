@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Usuário{% endblock %}
+
+{% block content %}
+<h1>Editar Usuário</h1>
+
+<form method="POST">
+    <div>
+        <label>Nome:</label>
+        <input type="text" name="nome" value="{{ usuario.nome }}" required>
+    </div>
+    
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ usuario.email }}" required>
+    </div>
+    
+    <button type="submit">Atualizar</button>
+    <a href="{{ url_for('usuarios.listar') }}" style="margin-left:10px;">Cancelar</a>
+</form>
+{% endblock %}

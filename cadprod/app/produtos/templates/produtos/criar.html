@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Criar Produto{% endblock %}
+
+{% block content %}
+<h1>Criar Novo Produto</h1>
+
+<form method="POST">
+    <div>
+        <label>Nome do Produto:</label>
+        <input type="text" name="nome" required>
+    </div>
+    
+    <div>
+        <label>Preço:</label>
+        <input type="number" step="0.01" name="preco" required>
+    </div>
+    
+    <div>
+        <label>Quantidade em Estoque:</label>
+        <input type="number" name="quantidade" value="0">
+    </div>
+    
+    <button type="submit">Salvar Produto</button>
+    <a href="{{ url_for('produtos.listar') }}" style="margin-left:10px;">Cancelar</a>
+</form>
+{% endblock %}

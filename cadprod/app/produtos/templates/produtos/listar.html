@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Produtos{% endblock %}
+
+{% block content %}
+<h1>Lista de Produtos</h1>
+<a href="{{ url_for('produtos.criar') }}" class="btn">+ Novo Produto</a>
+
+{% if produtos %}
+<table style="width:100%; margin-top:20px; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border:1px solid #ddd; padding:8px;">ID</th>
+            <th style="border:1px solid #ddd; padding:8px;">Nome</th>
+            <th style="border:1px solid #ddd; padding:8px;">Preço</th>
+            <th style="border:1px solid #ddd; padding:8px;">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for produto in produtos %}
+        <tr>
+            <td style="border:1px solid #ddd; padding:8px;">{{ produto.id }}</td>
+            <td style="border:1px solid #ddd; padding:8px;">{{ produto.nome }}</td>
+            <td style="border:1px solid #ddd; padding:8px;">R$ {{ "%.2f"|format(produto.preco) }}</td>
+            <td style="border:1px solid #ddd; padding:8px;">
+                <a href="{{ url_for('produtos.editar', id=produto.id) }}">Editar</a>
+                <a href="{{ url_for('produtos.deletar', id=produto.id) }}" onclick="return confirm('Tem certeza que deseja remover este produto?')">Remover</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p style="margin-top:20px;">Nenhum produto cadastrado ainda.</p>
+{% endif %}
+{% endblock %}

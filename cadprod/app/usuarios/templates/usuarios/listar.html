@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Usuários{% endblock %}
+
+{% block content %}
+<h1>Lista de Usuários</h1>
+<a href="{{ url_for('usuarios.criar') }}" class="btn">+ Novo Usuário</a>
+
+{% if usuarios %}
+<table style="width:100%; margin-top:20px; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border:1px solid #ddd; padding:8px;">ID</th>
+            <th style="border:1px solid #ddd; padding:8px;">Nome</th>
+            <th style="border:1px solid #ddd; padding:8px;">Email</th>
+            <th style="border:1px solid #ddd; padding:8px;">Data Cadastro</th>
+            <th style="border:1px solid #ddd; padding:8px;">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td style="border:1px solid #ddd; padding:8px;">{{ usuario.id }}</td>
+            <td style="border:1px solid #ddd; padding:8px;">{{ usuario.nome }}</td>
+            <td style="border:1px solid #ddd; padding:8px;">{{ usuario.email }}</td>
+            <td style="border:1px solid #ddd; padding:8px;">{{ usuario.data_cadastro.strftime('%d/%m/%Y') }}</td>
+            <td style="border:1px solid #ddd; padding:8px;">
+                <a href="{{ url_for('usuarios.editar', id=usuario.id) }}">Editar</a> |
+                <a href="{{ url_for('usuarios.deletar', id=usuario.id) }}" 
+                   onclick="return confirm('Tem certeza?')">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nenhum usuário cadastrado.</p>
+{% endif %}
+{% endblock %}
